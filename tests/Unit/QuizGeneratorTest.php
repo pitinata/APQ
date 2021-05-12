@@ -36,8 +36,8 @@ class QuizGeneratorTest extends TestCase
 
     public function test_answer_calculation(){
 
-        $answer = QuizGenerator::calculateAnswer([1,2,3,4,5], ["*","+","+","*"]);
+        $answer = QuizGenerator::calculateAnswer([1,2,3,4,5], ["*","/","/","*"]);
 
-        $this->assertEquals(3, $answer);
+        $this->assertEquals(25, $answer);
     }
 }
