@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use App\Http\Controllers\QuizGenerator;
+use App\Models\Quiz;
 use Tests\TestCase;
 
 class QuizGeneratorTest extends TestCase
@@ -12,7 +13,6 @@ class QuizGeneratorTest extends TestCase
      *
      * @return void
      */
-
 
     public function test_number_generator(){
 
@@ -28,7 +28,7 @@ class QuizGeneratorTest extends TestCase
 
         $totalNumber = 10;
 
-        $data = QuizGenerator::generateOperator($totalNumber, ["1","2"]);
+        $data = QuizGenerator::generateOperator($totalNumber, [1,2]);
 
         $this->assertIsArray($data);
         $this->assertCount($totalNumber-1,$data);
@@ -36,8 +36,44 @@ class QuizGeneratorTest extends TestCase
 
     public function test_answer_calculation(){
 
-        $answer = QuizGenerator::calculateAnswer([1,2,3,4,5], ["*","/","/","*"]);
+        $answer = QuizGenerator::calculateAnswer([1,2,3,4,5], ["+","+","+","+"]);
 
-        $this->assertEquals(25, $answer);
+        $this->assertEquals(15, $answer);
+    }
+
+    public function test_question_generate(){
+        $question = QuizGenerator::generateQuestion(totalNumber: 1, digitPerNumber:2, isMixDigit:false, operator: [1,2]);
+
+        $this->assertInstanceOf(Quiz::class, $question);
+    }
+
+    public function test_quiz_generator()
+    {
+        // $response = $this->get('/quiz/get?totalQuestion=1&totalNumber=2&digitPerNumber=2&isMixDigit=true&operator[]=1&operator[]=2');
+
+        // [
+        //     "totalQuestion" => '1',
+        //     "totalNumber" => 2,
+        //     "digitPerNumber" => 2,
+        //     "isMixDigit" => true,
+        //     "operator" => [1]
+        // ]
+
+        $totalQuestion = 10;
+
+        $paper = QuizGenerator::generatePaper(
+            totalQuestion: $totalQuestion,
+            totalNumber: 5,
+            digitPerNumber: 2,
+            isMixDigit: true,
+            operator: [1,2]
+        );
+
+        print_r($paper);
+
+        $this->assertIsArray($paper);
+        $this->assertInstanceOf(Quiz::class,$paper[0]);
+        $this->assertCount($totalQuestion, $paper);
+
     }
 }

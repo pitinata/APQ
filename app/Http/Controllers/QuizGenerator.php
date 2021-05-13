@@ -14,7 +14,39 @@ class QuizGenerator extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //public function __invoke(Request $request)
+    public static function generatePaper($totalQuestion, $totalNumber, $digitPerNumber, $isMixDigit, $operator)
+    {
+        $returnedArray = [];
 
+        for($i = 0; $i<$totalQuestion; $i++){
+            $quiz = QuizGenerator::generateQuestion(
+                $totalNumber,
+                $digitPerNumber,
+                $isMixDigit,
+                $operator
+            );
+
+            array_push($returnedArray, $quiz);
+        }
+
+        return $returnedArray;
+    }
+
+
+    public static function generateQuestion($totalNumber, $digitPerNumber, $isMixDigit, $operator){
+
+        $quiz = new Quiz();
+
+        $numberArr = QuizGenerator::generateNumber($totalNumber, $digitPerNumber, $isMixDigit);
+        $operatorArr = QuizGenerator::generateOperator($totalNumber, $operator);
+
+        $quiz->question_number_array = serialize($numberArr);
+        $quiz->question_operator_array = serialize($operatorArr);
+        $quiz->answer = QuizGenerator::calculateAnswer($numberArr, $operatorArr);
+
+        return $quiz;
+    }
 
     public static function generateNumber($totalNumber, $digitPerNumber, $isMixDigit){
 
@@ -38,10 +70,10 @@ class QuizGenerator extends Controller
 
         for($i = 0; $i<$totalNumber-1; $i++){
             $thisOperator = match($operator[array_rand($operator)]){
-                "1"=>"+",
-                "2"=>"-",
-                "3"=>"*",
-                "4"=>"/",
+                1=>"+",
+                2=>"-",
+                3=>"*",
+                4=>"/",
             };
 
             array_push($operatorArr, $thisOperator);
