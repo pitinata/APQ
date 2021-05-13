@@ -9,8 +9,14 @@ class Quiz extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'quiz_id';
+
     protected $fillable = [
-        'question_number_array', 'question_operator_array', 'answer'
+        'question_number', 'question_operator', 'answer'
     ];
+
+    public function paper(){
+        return $this->hasOne(Paper::class);
+    }
 
 }

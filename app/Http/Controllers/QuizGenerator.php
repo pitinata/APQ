@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Exceptions\IncompleteNumberOrOperatorException;
+use App\Models\Paper;
 use App\Models\Quiz;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class QuizGenerator extends Controller
 {
@@ -14,10 +17,16 @@ class QuizGenerator extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    //public function __invoke(Request $request)
-    public static function generatePaper($totalQuestion, $totalNumber, $digitPerNumber, $isMixDigit, $operator)
+    // public static function generatePaper($totalQuestion, $totalNumber, $digitPerNumber, $isMixDigit, $operator)
+    public function __invoke(Request $request)
     {
-        $returnedArray = [];
+        $quizzes = [];
+
+        $totalQuestion=$request->input("totalQuestion");
+        $totalNumber=$request->input("totalNumber");
+        $digitPerNumber=$request->input("digitPerNumber");
+        $isMixDigit=$request->input("isMixDigit");
+        $operator=$request->input("operator");
 
         for($i = 0; $i<$totalQuestion; $i++){
             $quiz = QuizGenerator::generateQuestion(
@@ -27,10 +36,27 @@ class QuizGenerator extends Controller
                 $operator
             );
 
-            array_push($returnedArray, $quiz);
+            array_push($quizzes, $quiz);
         }
 
-        return $returnedArray;
+        try {
+            DB::transaction(function () use ($quizzes) {
+                $paper = new Paper();
+                $paper->save();
+
+                foreach($quizzes as $quiz){
+                    $quiz->paper_id = $paper->paper_id;
+                    $quiz->save();
+                }
+            });
+
+            return "Generate successful.";
+        }
+        catch(Exception $e){
+            return "Failed to insert to database: ".$e;
+        }
+
+
     }
 
 
@@ -41,8 +67,8 @@ class QuizGenerator extends Controller
         $numberArr = QuizGenerator::generateNumber($totalNumber, $digitPerNumber, $isMixDigit);
         $operatorArr = QuizGenerator::generateOperator($totalNumber, $operator);
 
-        $quiz->question_number_array = serialize($numberArr);
-        $quiz->question_operator_array = serialize($operatorArr);
+        $quiz->question_number = serialize($numberArr);
+        $quiz->question_operator = serialize($operatorArr);
         $quiz->answer = QuizGenerator::calculateAnswer($numberArr, $operatorArr);
 
         return $quiz;

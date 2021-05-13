@@ -47,33 +47,34 @@ class QuizGeneratorTest extends TestCase
         $this->assertInstanceOf(Quiz::class, $question);
     }
 
-    public function test_quiz_generator()
-    {
-        // $response = $this->get('/quiz/get?totalQuestion=1&totalNumber=2&digitPerNumber=2&isMixDigit=true&operator[]=1&operator[]=2');
+    // public function test_quiz_generator()
+    // {
+    //     // $response = $this->get('/quiz/get?totalQuestion=1&totalNumber=2&digitPerNumber=2&isMixDigit=true&operator[]=1&operator[]=2');
 
-        // [
-        //     "totalQuestion" => '1',
-        //     "totalNumber" => 2,
-        //     "digitPerNumber" => 2,
-        //     "isMixDigit" => true,
-        //     "operator" => [1]
-        // ]
+    //     // [
+    //     //     "totalQuestion" => '1',
+    //     //     "totalNumber" => 2,
+    //     //     "digitPerNumber" => 2,
+    //     //     "isMixDigit" => true,
+    //     //     "operator" => [1]
+    //     // ]
 
-        $totalQuestion = 10;
+    //     $totalQuestion = 10;
 
-        $paper = QuizGenerator::generatePaper(
-            totalQuestion: $totalQuestion,
-            totalNumber: 5,
-            digitPerNumber: 2,
-            isMixDigit: true,
-            operator: [1,2]
-        );
+    //     $paper = QuizGenerator::generatePaper(
+    //         totalQuestion: $totalQuestion,
+    //         totalNumber: 5,
+    //         digitPerNumber: 2,
+    //         isMixDigit: true,
+    //         operator: [1,2]
+    //     );
 
-        print_r($paper);
+    //     print_r($paper);
 
-        $this->assertIsArray($paper);
-        $this->assertInstanceOf(Quiz::class,$paper[0]);
-        $this->assertCount($totalQuestion, $paper);
+    //     $this->assertIsArray($paper);
+    //     $this->assertInstanceOf(Quiz::class,$paper[0]);
+    //     $this->assertCount($totalQuestion, $paper);
 
-    }
+    // }
+
 }
