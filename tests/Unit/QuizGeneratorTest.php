@@ -28,7 +28,7 @@ class QuizGeneratorTest extends TestCase
 
         $totalNumber = 10;
 
-        $data = QuizGenerator::generateOperator($totalNumber, [1,2]);
+        $data = QuizGenerator::generateOperator($totalNumber, ["+","-"]);
 
         $this->assertIsArray($data);
         $this->assertCount($totalNumber-1,$data);
@@ -42,7 +42,7 @@ class QuizGeneratorTest extends TestCase
     }
 
     public function test_question_generate(){
-        $question = QuizGenerator::generateQuestion(totalNumber: 1, digitPerNumber:2, isMixDigit:false, operator: [1,2]);
+        $question = QuizGenerator::generateQuestion(totalNumber: 1, digitPerNumber:2, isMixDigit:false, operator: ["+","-"]);
 
         $this->assertInstanceOf(Quiz::class, $question);
     }

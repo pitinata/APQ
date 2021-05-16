@@ -25,7 +25,7 @@ class QuizDbTest extends TestCase
             "totalNumber" => 2,
             "digitPerNumber" => 2,
             "isMixDigit" => true,
-            "operator" => [1]
+            "operator" => ["+"]
         ]);
 
         $response->assertOk();

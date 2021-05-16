@@ -56,15 +56,10 @@ class QuizGenerator extends Controller
     public static function generateOperator($totalNumber, $operator){
 
         $operatorArr = [];
+        $operator = array_intersect(["+","-","*","/"], $operator);
 
         for($i = 0; $i<$totalNumber-1; $i++){
-            $thisOperator = match($operator[array_rand($operator)]){
-                1=>"+",
-                2=>"-",
-                3=>"*",
-                4=>"/",
-            };
-
+            $thisOperator = $operator[array_rand($operator)];
             array_push($operatorArr, $thisOperator);
         }
 
