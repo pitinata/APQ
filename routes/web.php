@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\QuizGenerator;
+use App\Http\Controllers\QuizController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -20,7 +21,8 @@ Route::get('/', function () {
 });
 
 Route::prefix('quiz')->group(function(){
-    Route::post('/generate', QuizGenerator::class);
+    Route::get('/form', [QuizController::class, 'create'])->name('quiz.form');
+    Route::post('/generate', [QuizController::class, 'generate'])->name('quiz.generate');
 });
 
 

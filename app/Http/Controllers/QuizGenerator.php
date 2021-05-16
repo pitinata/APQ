@@ -18,46 +18,9 @@ class QuizGenerator extends Controller
      * @return \Illuminate\Http\Response
      */
     // public static function generatePaper($totalQuestion, $totalNumber, $digitPerNumber, $isMixDigit, $operator)
-    public function __invoke(Request $request)
-    {
-        $quizzes = [];
-
-        $totalQuestion=$request->input("totalQuestion");
-        $totalNumber=$request->input("totalNumber");
-        $digitPerNumber=$request->input("digitPerNumber");
-        $isMixDigit=$request->input("isMixDigit");
-        $operator=$request->input("operator");
-
-        for($i = 0; $i<$totalQuestion; $i++){
-            $quiz = QuizGenerator::generateQuestion(
-                $totalNumber,
-                $digitPerNumber,
-                $isMixDigit,
-                $operator
-            );
-
-            array_push($quizzes, $quiz);
-        }
-
-        try {
-            DB::transaction(function () use ($quizzes) {
-                $paper = new Paper();
-                $paper->save();
-
-                foreach($quizzes as $quiz){
-                    $quiz->paper_id = $paper->paper_id;
-                    $quiz->save();
-                }
-            });
-
-            return "Generate successful.";
-        }
-        catch(Exception $e){
-            return "Failed to insert to database: ".$e;
-        }
-
-
-    }
+    // public function __invoke(Request $request)
+    // {
+    // }
 
 
     public static function generateQuestion($totalNumber, $digitPerNumber, $isMixDigit, $operator){
