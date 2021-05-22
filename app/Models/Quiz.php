@@ -15,8 +15,4 @@ class Quiz extends Model
         'question_number', 'question_operator', 'answer'
     ];
 
-    public function paper(){
-        return $this->hasOne(Paper::class);
-    }
-
 }

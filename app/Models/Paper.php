@@ -10,4 +10,8 @@ class Paper extends Model
     use HasFactory;
 
     protected $primaryKey = 'paper_id';
+
+    public function quiz(){
+        return $this->hasMany(Quiz::class, 'paper_id');
+    }
 }
