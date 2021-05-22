@@ -24,9 +24,9 @@
             <tr>
                 <td>Digit mode</td>
                 <td>
-                    <input type="radio" id="nomix" name="isMixDigit" value="{{false}}">
+                    <input type="radio" id="nomix" name="isMixDigit" value="0">
                     <label for="nomix">Same numbers of digit</label><br/>
-                    <input type="radio" id="mix" name="isMixDigit" value="{{true}}">
+                    <input type="radio" id="mix" name="isMixDigit" value="1">
                     <label for="mix">Mix numbers of digit</label><br/>
                 </td>
             </tr>
