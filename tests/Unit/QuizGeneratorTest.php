@@ -47,34 +47,13 @@ class QuizGeneratorTest extends TestCase
         $this->assertInstanceOf(Quiz::class, $question);
     }
 
-    // public function test_quiz_generator()
-    // {
-    //     // $response = $this->get('/quiz/get?totalQuestion=1&totalNumber=2&digitPerNumber=2&isMixDigit=true&operator[]=1&operator[]=2');
+    public function test_serialize_question_to_string(){
+        $questionNumber = 'a:2:{i:0;i:74;i:1;i:21;}';
+        $questionOperator = 'a:1:{i:0;s:1:"+";}';
 
-    //     // [
-    //     //     "totalQuestion" => '1',
-    //     //     "totalNumber" => 2,
-    //     //     "digitPerNumber" => 2,
-    //     //     "isMixDigit" => true,
-    //     //     "operator" => [1]
-    //     // ]
+        $questionString = QuizGenerator::serializedQuestionToString($questionNumber, $questionOperator);
 
-    //     $totalQuestion = 10;
-
-    //     $paper = QuizGenerator::generatePaper(
-    //         totalQuestion: $totalQuestion,
-    //         totalNumber: 5,
-    //         digitPerNumber: 2,
-    //         isMixDigit: true,
-    //         operator: [1,2]
-    //     );
-
-    //     print_r($paper);
-
-    //     $this->assertIsArray($paper);
-    //     $this->assertInstanceOf(Quiz::class,$paper[0]);
-    //     $this->assertCount($totalQuestion, $paper);
-
-    // }
+        $this->assertEquals("74+21",$questionString);
+    }
 
 }

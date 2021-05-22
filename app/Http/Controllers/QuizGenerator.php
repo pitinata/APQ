@@ -66,8 +66,6 @@ class QuizGenerator extends Controller
         return $operatorArr;
     }
 
-
-
     public static function calculateAnswer($numberArr, $operatorArr){
 
         if(count($numberArr)!==count($operatorArr)+1){
@@ -124,6 +122,21 @@ class QuizGenerator extends Controller
             return $answer;
         }
 
+    }
+
+    public static function serializedQuestionToString($questionNumber, $questionOperator){
+        $deserializedNumber = unserialize($questionNumber);
+        $deserializedOperator = unserialize($questionOperator);
+
+        $questionString = "";
+
+        while(count($deserializedOperator)>0){
+            $questionString = $questionString.array_shift($deserializedNumber).array_shift($deserializedOperator);
+        }
+
+        $questionString .= array_shift($deserializedNumber);
+
+        return $questionString;
     }
 
 }
