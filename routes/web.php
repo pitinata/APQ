@@ -28,7 +28,6 @@ Route::prefix('quiz')->group(function(){
 Route::prefix('paper')->group(function(){
     Route::get('/form', [PaperController::class, 'create'])->name('paper.form');
     Route::post('/generate', [PaperController::class, 'generate'])->name('paper.generate');
-    Route::get('/show', [PaperController::class, 'show']);
 });
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Paper;
 use App\Services\Pdf;
+use Exception;
 use Illuminate\Http\Request;
 
 class PaperController extends Controller
@@ -14,9 +15,21 @@ class PaperController extends Controller
         $this->pdf = $pdf;
     }
 
-    public function show(){
+    public function create()
+    {
+        $papers = Paper::all();
+        return view('generate.paper.generateForm', [
+            'papers' => $papers,
+        ]);
+    }
 
-        $paper = Paper::findOrFail(20);
+    public function generate(Request $request){
+
+        $request->validate([
+            'paperId' => 'required|integer',
+        ]);
+
+        $paper = Paper::findOrFail($request->get("paperId"));
         $quizzes = $paper->quiz->all();
 
         foreach($quizzes as $key=>$quiz){
@@ -32,7 +45,7 @@ class PaperController extends Controller
             'setting'=> $setting,
         ]), 200)->withHeaders([
             'Content-Type' => 'application/pdf',
-            'Content-Disposition' => ("attachment; filename='question-{$paper->paper_id}.pdf'"),
+            'Content-Disposition' => ("attachment; filename=question-{$paper->paper_id}.pdf"),
         ]);
 
         // $pdf = PDF::loadView('pdf.page', [
@@ -48,14 +61,5 @@ class PaperController extends Controller
         // ]);
     }
 
-    public function generate(Request $request)
-    {
-        $request->validate([
-            'paperId' => 'required|integer|min:1',
-        ]);
 
-        $paper = Paper::findOrFail($request->get("paperId"));
-        $quizzes = $paper->quiz->all();
-
-    }
 }

@@ -15,14 +15,4 @@ class PaperGeneratorTest extends TestCase
         $this->assertNotEmpty($quizzes);
     }
 
-    public function test_paper_generator(){
-        $idToGenerate = 2;
-        $paper = Paper::findOrFail($idToGenerate);
-
-        $response = $this->get('/paper/generate');
-        $content = $response->streamedContent();
-
-        $this->assertNotEmpty($content);
-
-    }
 }
