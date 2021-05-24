@@ -42,8 +42,10 @@ class QuizGenerator extends Controller
         $numberArr = [];
 
         for($i = 0; $i<$totalNumber; $i++){
-            if($isMixDigit===true){
-                array_push($numberArr, rand(0,pow(10,$digitPerNumber)-1));
+            if($isMixDigit==true){
+                $digitToRand = rand(1, $digitPerNumber);
+
+                array_push($numberArr, rand(pow(10,$digitToRand-1),pow(10,$digitToRand)-1));
             }
             else{
                 array_push($numberArr, rand(pow(10,$digitPerNumber-1),pow(10,$digitPerNumber)-1));
