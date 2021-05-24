@@ -56,4 +56,26 @@ class QuizGeneratorTest extends TestCase
         $this->assertEquals("74+21",$questionString);
     }
 
+    public function test_check_if_positive(){
+        $positiveValue = 1;
+        $negativeValue = -1;
+
+        $positiveOnly = true;
+
+        $result = QuizGenerator::checkPositive($positiveValue, $positiveOnly);
+        $this->assertTrue($result);
+
+        $result = QuizGenerator::checkPositive($negativeValue, $positiveOnly);
+        $this->assertFalse($result);
+
+        $positiveOnly = false;
+
+        $result = QuizGenerator::checkPositive($positiveValue, $positiveOnly);
+        $this->assertTrue($result);
+
+        $result = QuizGenerator::checkPositive($negativeValue, $positiveOnly);
+        $this->assertTrue($result);
+    }
+
+
 }
