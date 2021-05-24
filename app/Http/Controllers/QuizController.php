@@ -18,10 +18,9 @@ class QuizController extends Controller
     public function generate(Request $request)
     {
         $request->validate([
-            'totalQuestion' => 'required|integer|min:1|max:1000',
-            'totalNumber' => 'required|integer|min:2|max:5',
-            'digitPerNumber' => 'required|integer|min:1|max:10',
-            'isMixDigit' => 'required|boolean',
+            'totalQuestion' => 'required|integer|min:1|max:100',
+            'totalNumber' => 'required|integer|min:2|max:4',
+            'digitPerNumber' => 'required|integer|min:1|max:2',
             'operator' => 'required|array|min:1',
         ]);
 
@@ -31,15 +30,23 @@ class QuizController extends Controller
         $totalNumber=$request->input("totalNumber");
         $digitPerNumber=$request->input("digitPerNumber");
         $isMixDigit=$request->input("isMixDigit");
+        $isPositiveOnly=$request->input("isPositiveOnly");
         $operator=$request->input("operator");
 
         for($i = 0; $i<$totalQuestion; $i++){
-            $quiz = QuizGenerator::generateQuestion(
-                $totalNumber,
-                $digitPerNumber,
-                $isMixDigit,
-                $operator
-            );
+
+            $passFlag = false;
+
+            while($passFlag == false){
+                $quiz = QuizGenerator::generateQuestion(
+                    $totalNumber,
+                    $digitPerNumber,
+                    $isMixDigit,
+                    $operator
+                );
+
+                $passFlag = QuizGenerator::checkPositive($quiz->answer, $isPositiveOnly);
+            }
 
             array_push($quizzes, $quiz);
         }

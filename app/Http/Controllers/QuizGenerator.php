@@ -139,4 +139,25 @@ class QuizGenerator extends Controller
         return $questionString;
     }
 
+    public static function checkPositive($value, $isPositiveOnly){
+
+        try{
+            if($isPositiveOnly == true){
+                if($value >= 0){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }
+            else{
+                return true;
+            }
+        }
+        catch(Exception $e){
+            echo $e;
+        }
+
+    }
+
 }
