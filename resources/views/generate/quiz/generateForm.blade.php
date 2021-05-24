@@ -11,23 +11,25 @@
             </tr>
             <tr>
                 <td>Total Question</td>
-                <td><input type="number" min="1" max="1000" id="totalQuestion" name="totalQuestion" /></td>
+                <td><input type="number" min="1" max="100" id="totalQuestion" name="totalQuestion" /></td>
             </tr>
             <tr>
                 <td>Number in each question</td>
-                <td><input type="number" min="2" max="5" id="totalNumber" name="totalNumber" /></td>
+                <td><input type="number" min="2" max="4" id="totalNumber" name="totalNumber" /></td>
             </tr>
             <tr>
                 <td>Digit per number</td>
-                <td><input type="number" min="1" max="10" id="digitPerNumber" name="digitPerNumber" /></td>
+                <td><input type="number" min="1" max="2" id="digitPerNumber" name="digitPerNumber" /></td>
             </tr>
             <tr>
-                <td>Digit mode</td>
+                <td>Setting</td>
                 <td>
-                    <input type="radio" id="nomix" name="isMixDigit" value="0">
-                    <label for="nomix">Same numbers of digit</label><br/>
-                    <input type="radio" id="mix" name="isMixDigit" value="1">
-                    <label for="mix">Mix numbers of digit</label><br/>
+                    <input type="checkbox" id="isMixDigit" name="isMixDigit" value="1" />
+                    <label for="isMixDigit">Mix numbers of digit</label><br/>
+
+                    <input type="checkbox" id="isPositiveOnly" name="isPositiveOnly" value="1" />
+                    <label for="isPositiveOnly">Positive answer only</label><br/>
+
                 </td>
             </tr>
             <tr>

@@ -61,7 +61,7 @@
 
                         <div class="bodyDiv">
                             <hr>
-                            <table style="width: 100%; table-layout: fixed; font-family: 'Cambria Math', sans-serif; font-size:28px; line-height: 2;">
+                            <table style="width: 100%; table-layout: fixed; font-family: 'Cambria Math', sans-serif; font-size:22px; line-height: 2;">
                                 @for ($i = 0; $i < 12; $i++)
                                     <tr>
                                         @if(array_key_exists($i,$quizChunk))

@@ -12,7 +12,7 @@ class QuizController extends Controller
 
     public function create()
     {
-        return view('generate.generateForm');
+        return view('generate.quiz.generateForm');
     }
 
     public function generate(Request $request)
