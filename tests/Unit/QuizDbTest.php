@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Unit;
 
 use App\Models\Paper;
 use App\Models\Quiz;
@@ -47,7 +47,7 @@ class QuizDbTest extends TestCase
         $this->withoutExceptionHandling();
 
         $latest_id = Paper::orderByDesc('paper_id')->first()->paper_id;
-        $totalQuestion = 300;
+        $totalQuestion = 100;
 
         $response = $this->post('/quiz/generate',[
             "totalQuestion" => $totalQuestion,
