@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PaperController;
+use App\Http\Controllers\QuizController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -15,6 +17,17 @@ use Inertia\Inertia;
 |
 */
 
+Route::prefix('quiz')->group(function(){
+    Route::get('/form', [QuizController::class, 'create'])->name('quiz.form');
+    Route::post('/generate', [QuizController::class, 'generate'])->name('quiz.generate');
+});
+
+Route::prefix('paper')->group(function(){
+    Route::get('/form', [PaperController::class, 'create'])->name('paper.form');
+    Route::post('/generate', [PaperController::class, 'generate'])->name('paper.generate');
+});
+
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -29,3 +42,4 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+

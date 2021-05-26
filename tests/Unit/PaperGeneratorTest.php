@@ -9,8 +9,7 @@ class PaperGeneratorTest extends TestCase
 {
 
     public function test_get_paper_data(){
-        $idToGenerate = 2;
-        $quizzes = Paper::find($idToGenerate)->quiz->all();
+        $quizzes = Paper::first()->quiz->all();
 
         $this->assertNotEmpty($quizzes);
     }
