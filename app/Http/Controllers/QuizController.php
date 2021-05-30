@@ -6,13 +6,14 @@ use App\Models\Paper;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Inertia\Inertia;
 
 class QuizController extends Controller
 {
 
     public function create()
     {
-        return view('generate.quiz.generateForm');
+        return Inertia::render('Quiz/GenerateForm');
     }
 
     public function generate(Request $request)
