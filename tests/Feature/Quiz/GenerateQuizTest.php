@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Quiz;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -28,7 +28,7 @@ class GenerateQuizTest extends TestCase
 
     public function test_guest_cannot_generate_quiz()
     {
-        $response = $this->post('/quiz/form', [
+        $response = $this->post('/quiz/generate', [
             "totalQuestion" => 10,
             "totalNumber" => 2,
             "digitPerNumber" => 2,
@@ -42,7 +42,7 @@ class GenerateQuizTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this->actingAs($user)->post('/quiz/form', [
+        $response = $this->actingAs($user)->post('/quiz/generate', [
             "totalQuestion" => 10,
             "totalNumber" => 2,
             "digitPerNumber" => 2,
