@@ -17,17 +17,6 @@ use Inertia\Inertia;
 |
 */
 
-Route::prefix('quiz')->group(function(){
-    Route::get('/form', [QuizController::class, 'create'])->name('quiz.form');
-    Route::post('/generate', [QuizController::class, 'generate'])->name('quiz.generate');
-});
-
-Route::prefix('paper')->group(function(){
-    Route::get('/form', [PaperController::class, 'create'])->name('paper.form');
-    Route::post('/generate', [PaperController::class, 'generate'])->name('paper.generate');
-});
-
-
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -40,6 +29,19 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+Route::prefix('quiz')->middleware(['auth', 'verified'])->group(function(){
+    Route::get('/form', [QuizController::class, 'create'])->name('quiz.form');
+    Route::post('/generate', [QuizController::class, 'generate'])->name('quiz.generate');
+});
+
+
+Route::prefix('paper')->middleware(['auth', 'verified'])->group(function(){
+    Route::get('/form', [PaperController::class, 'create'])->name('paper.form');
+    Route::get('/list', [PaperController::class, 'list'])->name('paper.list');
+    Route::post('/generate', [PaperController::class, 'generate'])->name('paper.generate');
+});
 
 require __DIR__.'/auth.php';
 
