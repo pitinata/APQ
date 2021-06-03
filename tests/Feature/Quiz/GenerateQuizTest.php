@@ -49,8 +49,9 @@ class GenerateQuizTest extends TestCase
             "isMixDigit" => true,
             "operator" => ["+"]
         ]);
-        $response->assertSee("Generate Successful");
+
         $response->assertStatus(200);
         $response->assertSessionHasNoErrors();
     }
+
 }
