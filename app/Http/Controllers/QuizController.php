@@ -27,26 +27,26 @@ class QuizController extends Controller
 
         $quizzes = [];
 
-        $totalQuestion=$request->input("totalQuestion");
-        $totalNumber=$request->input("totalNumber");
-        $digitPerNumber=$request->input("digitPerNumber");
-        $isMixDigit=$request->input("isMixDigit");
-        $isPositiveOnly=$request->input("isPositiveOnly");
-        $operator=$request->input("operator");
+        $paperInfo['totalQuestion'] = $request->input("totalQuestion");
+        $paperInfo['totalNumber'] = $request->input("totalNumber");
+        $paperInfo['digitPerNumber'] = $request->input("digitPerNumber");
+        $paperInfo['isMixDigit'] = $request->input("isMixDigit");
+        $paperInfo['isPositiveOnly'] = $request->input("isPositiveOnly");
+        $paperInfo['operator'] = $request->input("operator");
 
-        for($i = 0; $i<$totalQuestion; $i++){
+        for($i = 0; $i<$paperInfo['totalQuestion']; $i++){
 
             $passFlag = false;
 
             while($passFlag == false){
                 $quiz = QuizGenerator::generateQuestion(
-                    $totalNumber,
-                    $digitPerNumber,
-                    $isMixDigit,
-                    $operator
+                    $paperInfo['totalNumber'],
+                    $paperInfo['digitPerNumber'],
+                    $paperInfo['isMixDigit'],
+                    $paperInfo['operator']
                 );
 
-                $passFlag = QuizGenerator::checkPositive($quiz->answer, $isPositiveOnly);
+                $passFlag = QuizGenerator::checkPositive($quiz->answer, $paperInfo['isPositiveOnly']);
             }
 
             array_push($quizzes, $quiz);
@@ -61,11 +61,14 @@ class QuizController extends Controller
                     $quiz->paper_id = $paper->paper_id;
                     $quiz->save();
                 }
-
                 return $paper->paper_id;
             });
 
-            return "Generate successful.";
+            $paperInfo['paperId'] = $returnedPaperId;
+
+            return Inertia::render('Quiz/GenerateFormResult', [
+                'paperInfo' => $paperInfo
+            ]);
         }
         catch(Exception $e){
             return "Failed to insert to database: ".$e;

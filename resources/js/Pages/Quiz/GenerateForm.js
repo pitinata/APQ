@@ -154,10 +154,8 @@ export default function GenerateForm(props){
                     </div>
 
                     <div className="mt-6 flex justify-center">
-                        <BlackButton px='6' py='3'>Generate</BlackButton>
+                        <BlackButton px='6' py='3' processing={processing}>Generate</BlackButton>
                     </div>
-
-
 
                 </form>
             </BodyCard>
