@@ -55,6 +55,7 @@ class QuizController extends Controller
         try {
             $returnedPaperId = DB::transaction(function () use ($quizzes) {
                 $paper = new Paper();
+                $paper->user_id = auth()->user()->id;
                 $paper->save();
 
                 foreach($quizzes as $quiz){
