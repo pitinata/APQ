@@ -34,9 +34,6 @@ export default function Menu({props}){
                     </Dropdown.Trigger>
 
                     <Dropdown.Content>
-                        <Dropdown.Link href='/dashboard' method="get" as="button">
-                            Dashboard
-                        </Dropdown.Link>
                         <Dropdown.Link href={route('quiz.form')} method="get" as="button">
                             Quiz Generator
                         </Dropdown.Link>

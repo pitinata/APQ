@@ -26,11 +26,6 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-
 Route::prefix('quiz')->middleware(['auth', 'verified'])->group(function(){
     Route::get('/form', [QuizController::class, 'create'])->name('quiz.form');
     Route::post('/generate', [QuizController::class, 'generate'])->name('quiz.generate');
