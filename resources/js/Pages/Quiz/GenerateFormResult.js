@@ -4,8 +4,19 @@ import Menu from '@/Components/Parts/Menu';
 import BlackButton from '@/Components/Button/BlackButton';
 import CustomButton from '@/Components/Button/CustomButton';
 import { InertiaLink } from '@inertiajs/inertia-react';
+import { useForm } from '@inertiajs/inertia-react';
+
 
 export default function GenerateForm(props){
+    // const{ data, setData, post, processing, errors } = useForm({
+    //     paperId: props.paperInfo['paperId'],
+    // });
+
+    // const submit = (e) => {
+    //     e.preventDefault();
+
+    //     post(route('paper.generate'), data);
+    // }
     return (
         <div className="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
 
@@ -60,10 +71,13 @@ export default function GenerateForm(props){
                 </div>
 
                 <div className="pb-2 flex justify-center">
-
-                    <CustomButton type="submit" px="5" py="4" color="bg-blue-500" border="border-blue-200">
-                        Generate PDF File
-                    </CustomButton>
+                    <a href={route('paper.generate', {
+                        paperId: props.paperInfo['paperId']
+                    })}>
+                        <CustomButton type="button" px="5" py="4" color="bg-blue-500" border="border-blue-200">
+                            Generate PDF File
+                        </CustomButton>
+                    </a>
                 </div>
 
                 <div className="pb-2 flex justify-center">

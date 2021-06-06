@@ -40,7 +40,7 @@ Route::prefix('quiz')->middleware(['auth', 'verified'])->group(function(){
 Route::prefix('paper')->middleware(['auth', 'verified'])->group(function(){
     Route::get('/form', [PaperController::class, 'create'])->name('paper.form');
     Route::get('/list', [PaperController::class, 'list'])->name('paper.list');
-    Route::post('/generate', [PaperController::class, 'generate'])->name('paper.generate');
+    Route::get('/generate/{paperId}', [PaperController::class, 'generate'])->name('paper.generate');
 });
 
 require __DIR__.'/auth.php';

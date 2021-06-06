@@ -6,6 +6,7 @@ use App\Models\Paper;
 use App\Services\Pdf;
 use Exception;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class PaperController extends Controller
 {
@@ -23,13 +24,9 @@ class PaperController extends Controller
         ]);
     }
 
-    public function generate(Request $request){
+    public function generate(Request $request, $paperId){
 
-        $request->validate([
-            'paperId' => 'required|integer',
-        ]);
-
-        $paper = Paper::findOrFail($request->get("paperId"));
+        $paper = Paper::findOrFail($paperId);
         $quizzes = $paper->quiz->all();
 
         foreach($quizzes as $key=>$quiz){
@@ -43,7 +40,7 @@ class PaperController extends Controller
             'paper'=> $paper,
             'quizzes'=> $quizzes,
             'setting'=> $setting,
-        ]), 200)->withHeaders([
+        ]), 200, [
             'Content-Type' => 'application/pdf',
             'Content-Disposition' => ("attachment; filename=question-{$paper->paper_id}.pdf"),
         ]);
