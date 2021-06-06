@@ -15,6 +15,7 @@ class CreatePapersTable extends Migration
     {
         Schema::create('papers', function (Blueprint $table) {
             $table->id(column: "paper_id");
+            $table->foreignId('user_id')->constrained('users', "id");
             $table->timestamps();
         });
     }
