@@ -58,5 +58,16 @@ class PaperController extends Controller
         // ]);
     }
 
+    public function list(){
+
+        $paperLists = Paper::where('user_id', auth()->user()->id)->orderByDesc('paper_id')->paginate(5);
+
+        $paperLists->load('quiz');
+
+        return Inertia::render('Paper/List', [
+            'paperLists' => $paperLists,
+        ]);
+    }
+
 
 }
