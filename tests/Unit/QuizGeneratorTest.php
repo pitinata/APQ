@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use App\Http\Controllers\QuizGenerator;
 use App\Models\Quiz;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 
 class QuizGeneratorTest extends TestCase
@@ -13,6 +14,8 @@ class QuizGeneratorTest extends TestCase
      *
      * @return void
      */
+
+    use DatabaseTransactions;
 
     public function test_number_generator(){
 

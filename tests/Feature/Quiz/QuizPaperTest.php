@@ -35,7 +35,7 @@ class QuizPaperTest extends TestCase
         $response = $this->actingAs($user)->get('/paper/list');
 
         $response->assertInertia(fn (Assert $page) => $page
-            ->has('paperLists', 2)
+            ->where('paperLists.total', 100)
         );
     }
 }
