@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\ChangePasswordController;
 use App\Http\Controllers\PaperController;
 use App\Http\Controllers\QuizController;
 use Illuminate\Foundation\Application;
@@ -38,5 +39,11 @@ Route::prefix('paper')->middleware(['auth', 'verified'])->group(function(){
     Route::get('/generate/{paperId}', [PaperController::class, 'generate'])->name('paper.generate');
 });
 
+Route::prefix('user')->middleware(['auth', 'verified'])->group(function(){
+    Route::get('/change-password', [ChangePasswordController::class, 'form'])->name('user.password.form');
+    Route::post('/change-password', [ChangePasswordController::class, 'store'])->name('user.password.store');
+});
+
 require __DIR__.'/auth.php';
+
 

@@ -40,6 +40,9 @@ export default function Menu({props}){
                         <Dropdown.Link href={route('paper.list')} method="get" as="button">
                             Quiz Paper List
                         </Dropdown.Link>
+                        <Dropdown.Link href={route('user.password.form')} method="get" as="button">
+                            Change Password
+                        </Dropdown.Link>
                         <Dropdown.Link href={route('logout')} method="post" as="button">
                             Log Out
                         </Dropdown.Link>
