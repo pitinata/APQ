@@ -22,7 +22,7 @@ export default function GenerateForm(props){
 
             <Menu props={props}></Menu>
 
-            <BodyCard smWidth='7xl' lgWidth='5xl' smPadding='6' lgPadding ='8'>
+            <BodyCard smWidth='7xl' lgWidth='3xl' smPadding='6' lgPadding ='8'>
 
                 <div className="pb-2 flex justify-center">
                     <span className="text-4xl font-bold	">Generate Successful</span>
