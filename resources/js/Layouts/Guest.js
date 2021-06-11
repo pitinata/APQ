@@ -1,4 +1,4 @@
-import ApplicationLogo from '../Components/ApplicationLogo';
+import Logo from '../Components/Logo';
 import React from 'react';
 import { InertiaLink } from '@inertiajs/inertia-react';
 
@@ -7,7 +7,7 @@ export default function Guest({ children }) {
         <div className="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
             <div>
                 <InertiaLink href="/">
-                    <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" />
+                    <Logo className="w-48 fill-current text-gray-500" />
                 </InertiaLink>
             </div>
 
