@@ -158,7 +158,9 @@ export default function GenerateForm(props){
                     </div>
 
                 </form>
+
             </BodyCard>
+
         </div>
     );
 }
