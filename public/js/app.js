@@ -9445,43 +9445,46 @@ function GenerateForm(props) {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "flex flex-col sm:w-full lg:w-9/12",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-            className: "mt-4 flex",
+            className: "mt-4 flex lg:h-40",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "border border-gray-400 sm:w-full lg:w-1/2",
+              className: "flex flex-col justify-center border border-gray-400 sm:w-full lg:w-1/2",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "text-4xl font-bold",
+                className: "text-4xl font-bold text-center",
                 children: props.paperInfo['totalQuestion']
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "text-2xl",
+                className: "text-lg text-center",
                 children: "Question(s)"
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "border border-gray-400 sm:w-full lg:w-1/2",
+              className: "flex flex-col justify-center border border-gray-400 sm:w-full lg:w-1/2",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "text-4xl font-bold",
+                className: "text-4xl font-bold text-center",
                 children: props.paperInfo['totalNumber']
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "text-2xl",
+                className: "text-lg text-center",
                 children: "Number(s) per question"
               })]
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-            className: "mb-4 flex",
+            className: "mb-4 flex lg:h-40",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "border border-gray-400 sm:w-full lg:w-1/2",
+              className: "flex flex-col justify-center border border-gray-400 sm:w-full lg:w-1/2",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                className: "text-4xl font-bold",
-                children: [props.paperInfo['isMixDigit'] ? '0' : Math.pow(10, props.paperInfo['digitPerNumber'] - 1), "-", Math.pow(10, props.paperInfo['digitPerNumber']) - 1]
+                className: "text-4xl font-bold text-center",
+                children: [props.paperInfo['isMixDigit'] ? '1' : Math.pow(10, props.paperInfo['digitPerNumber'] - 1), "-", Math.pow(10, props.paperInfo['digitPerNumber']) - 1]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "text-2xl",
-                children: "Value of each number"
+                className: "text-lg text-center",
+                children: "Number Value"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-              className: "border border-gray-400 sm:w-full lg:w-1/2",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "text-2xl",
-                children: props.paperInfo['isPositiveOnly'] ? 'The answer is positive value only' : 'The answer can be a positive or negative value'
-              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              className: "flex flex-col justify-center border border-gray-400 sm:w-full lg:w-1/2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                className: "text-4xl font-bold text-center",
+                children: props.paperInfo['isPositiveOnly'] ? (0,html_entities__WEBPACK_IMPORTED_MODULE_7__.decode)('&#8805;0') : 'Any'
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                className: "text-lg text-center",
+                children: "Answer Value"
+              })]
             })]
           })]
         })

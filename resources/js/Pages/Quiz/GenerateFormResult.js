@@ -30,30 +30,33 @@ export default function GenerateForm(props){
 
                 <div className="my-4 flex justify-center">
                     <div className="flex flex-col sm:w-full lg:w-9/12">
-                        <div className="mt-4 flex">
-                            <div className="border border-gray-400 sm:w-full lg:w-1/2">
-                                <div className="text-4xl font-bold">{ props.paperInfo['totalQuestion'] }</div>
-                                <div className="text-2xl">Question(s)</div>
+                        <div className="mt-4 flex lg:h-40">
+                            <div className="flex flex-col justify-center border border-gray-400 sm:w-full lg:w-1/2">
+                                <div className="text-4xl font-bold text-center">{ props.paperInfo['totalQuestion'] }</div>
+                                <div className="text-lg text-center">Question(s)</div>
                             </div>
-                            <div className="border border-gray-400 sm:w-full lg:w-1/2">
-                                <div className="text-4xl font-bold">{ props.paperInfo['totalNumber'] }</div>
-                                <div className="text-2xl">Number(s) per question</div>
+                            <div className="flex flex-col justify-center border border-gray-400 sm:w-full lg:w-1/2">
+                                <div className="text-4xl font-bold text-center">{ props.paperInfo['totalNumber'] }</div>
+                                <div className="text-lg text-center">Number(s) per question</div>
                             </div>
                         </div>
-                        <div className="mb-4 flex">
-                            <div className="border border-gray-400 sm:w-full lg:w-1/2">
-                                <div className="text-4xl font-bold">
-                                    { props.paperInfo['isMixDigit'] ? '0' : Math.pow(10, props.paperInfo['digitPerNumber']-1) }
+                        <div className="mb-4 flex lg:h-40">
+                            <div className="flex flex-col justify-center border border-gray-400 sm:w-full lg:w-1/2">
+                                <div className="text-4xl font-bold text-center">
+                                    { props.paperInfo['isMixDigit'] ? '1' : Math.pow(10, props.paperInfo['digitPerNumber']-1) }
                                     -
                                     { Math.pow(10, props.paperInfo['digitPerNumber'])-1 }
                                 </div>
-                                <div className="text-2xl">Value of each number</div>
+                                <div className="text-lg text-center">Number Value</div>
                             </div>
-                            <div className="border border-gray-400 sm:w-full lg:w-1/2">
-                                <div className="text-2xl">
+                            <div className="flex flex-col justify-center border border-gray-400 sm:w-full lg:w-1/2">
+                                <div className="text-4xl font-bold text-center">
                                     {props.paperInfo['isPositiveOnly']
-                                    ? 'The answer is positive value only'
-                                    : 'The answer can be a positive or negative value'}
+                                    ? decode('&#8805;0')
+                                    : 'Any'}
+                                </div>
+                                <div className="text-lg text-center">
+                                    Answer Value
                                 </div>
                             </div>
                         </div>
