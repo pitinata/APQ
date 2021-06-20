@@ -1,6 +1,8 @@
 import React from 'react';
 import BodyCard from '@/Components/Parts/BodyCard';
 import Menu from '@/Components/Parts/Menu';
+import QuestionStructure from '@/Components/Parts/QuestionStructure';
+import NumberValue from '@/Components/Parts/NumberValue';
 import BlackButton from '@/Components/Button/BlackButton';
 import CustomButton from '@/Components/Button/CustomButton';
 import StatusBox from '@/Components/StatusBox';
@@ -9,26 +11,6 @@ import { decode } from 'html-entities';
 
 
 export default function GenerateForm(props){
-
-    let quizStructure;
-
-    if(props.paperInfo['totalNumber'] > 1){
-        quizStructure = "N1";
-        for(let i = 1; i<props.paperInfo['totalNumber']; i++){
-            quizStructure = quizStructure + " * N"+(i+1);
-        }
-
-        if(props.paperInfo['isPositiveOnly']){
-            quizStructure = quizStructure + decode(' &#8805; 0');
-        }
-        else{
-            quizStructure = quizStructure + " = Any Value";
-        }
-
-    }
-    else{
-        quizStructure = "Undefined Data Structure.";
-    }
 
     return (
         <div className="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
@@ -58,7 +40,9 @@ export default function GenerateForm(props){
                                 </div>
                                 <div className="flex flex-col justify-center h-2/4">
                                     <div>
-                                        <div className="text-xl font-bold text-center">{ quizStructure }</div>
+                                        <div className="text-xl font-bold text-center">
+                                            { <QuestionStructure totalNumber={props.paperInfo['totalNumber']} isPositiveOnly={props.paperInfo['isPositiveOnly']}></QuestionStructure> }
+                                        </div>
                                         <div className="text-center">
                                             ( { props.paperInfo['totalQuestion'] } Question(s) )
                                         </div>
@@ -73,10 +57,9 @@ export default function GenerateForm(props){
 
                         <div className="mt-4 flex h-20">
                             <div className="flex flex-col justify-center border border-gray-400 w-full">
-                                <div className="text-2xl font-bold text-center">Number Value</div>
-                                <div className="text-2xl font-bold text-center">{ props.paperInfo['isMixDigit'] ? '1' : Math.pow(10, props.paperInfo['digitPerNumber']-1) }
-                                    -
-                                    { Math.pow(10, props.paperInfo['digitPerNumber'])-1 }
+                                <div className="text-2xl font-bold text-center">Available Number Value</div>
+                                <div className="text-2xl font-bold text-center">
+                                    <NumberValue digitPerNumber={props.paperInfo['digitPerNumber']} isMixDigit={props.paperInfo['isMixDigit']}></NumberValue>
                                 </div>
                             </div>
                         </div>
