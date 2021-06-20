@@ -9414,6 +9414,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function GenerateForm(props) {
+  var quizStructure;
+
+  if (props.paperInfo['totalNumber'] > 1) {
+    quizStructure = "N1";
+
+    for (var i = 1; i < props.paperInfo['totalNumber']; i++) {
+      quizStructure = quizStructure + " * N" + (i + 1);
+    }
+
+    if (props.paperInfo['isPositiveOnly']) {
+      quizStructure = quizStructure + (0,html_entities__WEBPACK_IMPORTED_MODULE_7__.decode)(' &#8805; 0');
+    } else {
+      quizStructure = quizStructure + " = Any Value";
+    }
+  } else {
+    quizStructure = "Undefined Data Structure.";
+  }
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
     className: "relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Parts_Menu__WEBPACK_IMPORTED_MODULE_2__.default, {
@@ -9444,74 +9462,73 @@ function GenerateForm(props) {
         className: "my-4 flex justify-center",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "flex flex-col sm:w-full lg:w-9/12",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-            className: "mt-4 flex lg:h-40",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "flex flex-col justify-center border border-gray-400 sm:w-full lg:w-1/2",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "text-4xl font-bold text-center",
-                children: props.paperInfo['totalQuestion']
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "text-lg text-center",
-                children: "Question(s)"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "flex flex-col justify-center border border-gray-400 sm:w-full lg:w-1/2",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "text-4xl font-bold text-center",
-                children: props.paperInfo['totalNumber']
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "text-lg text-center",
-                children: "Number(s) per question"
-              })]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-            className: "mb-4 flex lg:h-40",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "flex flex-col justify-center border border-gray-400 sm:w-full lg:w-1/2",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                className: "text-4xl font-bold text-center",
-                children: [props.paperInfo['isMixDigit'] ? '1' : Math.pow(10, props.paperInfo['digitPerNumber'] - 1), "-", Math.pow(10, props.paperInfo['digitPerNumber']) - 1]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "text-lg text-center",
-                children: "Number Value"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "flex flex-col justify-center border border-gray-400 sm:w-full lg:w-1/2",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "text-4xl font-bold text-center",
-                children: props.paperInfo['isPositiveOnly'] ? (0,html_entities__WEBPACK_IMPORTED_MODULE_7__.decode)('&#8805;0') : 'Any'
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "text-lg text-center",
-                children: "Answer Value"
-              })]
-            })]
-          })]
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-        className: "my-4 flex justify-center",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-          className: "my-4 p-2 bg-white dark:bg-gray-800 overflow-hidden border border-gray-400 rounded-md sm:w-full lg:w-9/12",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-            className: "pb-2 flex justify-center",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-              className: "text-2xl font-bold",
-              children: "Available Operator"
+            className: "mt-4 flex h-48",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              className: "flex flex-col justify-center border border-gray-400 w-full",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                className: "flex flex-col justify-center h-1/4",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                  className: "text-2xl font-bold text-center",
+                  children: "Question Structure"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                className: "flex flex-col justify-center h-2/4",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                    className: "text-xl font-bold text-center",
+                    children: quizStructure
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                    className: "text-center",
+                    children: ["( ", props.paperInfo['totalQuestion'], " Question(s) )"]
+                  })]
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                className: "flex flex-col justify-center h-1/4",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                  className: "text-center text-gray-300",
+                  children: "N1, N2, N... : Number"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                  className: "text-center text-gray-300",
+                  children: "* : Operator"
+                })]
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+            className: "mt-4 flex h-20",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              className: "flex flex-col justify-center border border-gray-400 w-full",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                className: "text-2xl font-bold text-center",
+                children: "Number Value"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                className: "text-2xl font-bold text-center",
+                children: [props.paperInfo['isMixDigit'] ? '1' : Math.pow(10, props.paperInfo['digitPerNumber'] - 1), "-", Math.pow(10, props.paperInfo['digitPerNumber']) - 1]
+              })]
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-            className: "pb-2 flex justify-around",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_StatusBox__WEBPACK_IMPORTED_MODULE_5__.default, {
-              isEnabled: props.paperInfo['operator'].includes("+") ? true : false,
-              children: (0,html_entities__WEBPACK_IMPORTED_MODULE_7__.decode)('&#43;')
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_StatusBox__WEBPACK_IMPORTED_MODULE_5__.default, {
-              isEnabled: props.paperInfo['operator'].includes("-") ? true : false,
-              children: (0,html_entities__WEBPACK_IMPORTED_MODULE_7__.decode)('&#8722;')
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_StatusBox__WEBPACK_IMPORTED_MODULE_5__.default, {
-              isEnabled: props.paperInfo['operator'].includes("*") ? true : false,
-              children: (0,html_entities__WEBPACK_IMPORTED_MODULE_7__.decode)('&#215;')
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_StatusBox__WEBPACK_IMPORTED_MODULE_5__.default, {
-              isEnabled: props.paperInfo['operator'].includes("/") ? true : false,
-              children: (0,html_entities__WEBPACK_IMPORTED_MODULE_7__.decode)('&#247;')
+            className: "my-4 p-2 bg-white dark:bg-gray-800 overflow-hidden border border-gray-400",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+              className: "pb-2 flex justify-center",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                className: "text-2xl font-bold",
+                children: "Available Operator"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              className: "pb-2 flex justify-around",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_StatusBox__WEBPACK_IMPORTED_MODULE_5__.default, {
+                isEnabled: props.paperInfo['operator'].includes("+") ? true : false,
+                children: (0,html_entities__WEBPACK_IMPORTED_MODULE_7__.decode)('&#43;')
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_StatusBox__WEBPACK_IMPORTED_MODULE_5__.default, {
+                isEnabled: props.paperInfo['operator'].includes("-") ? true : false,
+                children: (0,html_entities__WEBPACK_IMPORTED_MODULE_7__.decode)('&#8722;')
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_StatusBox__WEBPACK_IMPORTED_MODULE_5__.default, {
+                isEnabled: props.paperInfo['operator'].includes("*") ? true : false,
+                children: (0,html_entities__WEBPACK_IMPORTED_MODULE_7__.decode)('&#215;')
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_StatusBox__WEBPACK_IMPORTED_MODULE_5__.default, {
+                isEnabled: props.paperInfo['operator'].includes("/") ? true : false,
+                children: (0,html_entities__WEBPACK_IMPORTED_MODULE_7__.decode)('&#247;')
+              })]
             })]
           })]
         })

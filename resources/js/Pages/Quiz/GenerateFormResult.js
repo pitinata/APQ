@@ -9,6 +9,27 @@ import { decode } from 'html-entities';
 
 
 export default function GenerateForm(props){
+
+    let quizStructure;
+
+    if(props.paperInfo['totalNumber'] > 1){
+        quizStructure = "N1";
+        for(let i = 1; i<props.paperInfo['totalNumber']; i++){
+            quizStructure = quizStructure + " * N"+(i+1);
+        }
+
+        if(props.paperInfo['isPositiveOnly']){
+            quizStructure = quizStructure + decode(' &#8805; 0');
+        }
+        else{
+            quizStructure = quizStructure + " = Any Value";
+        }
+
+    }
+    else{
+        quizStructure = "Undefined Data Structure.";
+    }
+
     return (
         <div className="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
 
@@ -30,60 +51,60 @@ export default function GenerateForm(props){
 
                 <div className="my-4 flex justify-center">
                     <div className="flex flex-col sm:w-full lg:w-9/12">
-                        <div className="mt-4 flex lg:h-40">
-                            <div className="flex flex-col justify-center border border-gray-400 sm:w-full lg:w-1/2">
-                                <div className="text-4xl font-bold text-center">{ props.paperInfo['totalQuestion'] }</div>
-                                <div className="text-lg text-center">Question(s)</div>
-                            </div>
-                            <div className="flex flex-col justify-center border border-gray-400 sm:w-full lg:w-1/2">
-                                <div className="text-4xl font-bold text-center">{ props.paperInfo['totalNumber'] }</div>
-                                <div className="text-lg text-center">Number(s) per question</div>
+                        <div className="mt-4 flex h-48">
+                            <div className="flex flex-col justify-center border border-gray-400 w-full">
+                                <div className="flex flex-col justify-center h-1/4">
+                                    <div className="text-2xl font-bold text-center">Question Structure</div>
+                                </div>
+                                <div className="flex flex-col justify-center h-2/4">
+                                    <div>
+                                        <div className="text-xl font-bold text-center">{ quizStructure }</div>
+                                        <div className="text-center">
+                                            ( { props.paperInfo['totalQuestion'] } Question(s) )
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="flex flex-col justify-center h-1/4">
+                                    <div className="text-center text-gray-300">N1, N2, N... : Number</div>
+                                    <div className="text-center text-gray-300">* : Operator</div>
+                                </div>
                             </div>
                         </div>
-                        <div className="mb-4 flex lg:h-40">
-                            <div className="flex flex-col justify-center border border-gray-400 sm:w-full lg:w-1/2">
-                                <div className="text-4xl font-bold text-center">
-                                    { props.paperInfo['isMixDigit'] ? '1' : Math.pow(10, props.paperInfo['digitPerNumber']-1) }
+
+                        <div className="mt-4 flex h-20">
+                            <div className="flex flex-col justify-center border border-gray-400 w-full">
+                                <div className="text-2xl font-bold text-center">Number Value</div>
+                                <div className="text-2xl font-bold text-center">{ props.paperInfo['isMixDigit'] ? '1' : Math.pow(10, props.paperInfo['digitPerNumber']-1) }
                                     -
                                     { Math.pow(10, props.paperInfo['digitPerNumber'])-1 }
                                 </div>
-                                <div className="text-lg text-center">Number Value</div>
-                            </div>
-                            <div className="flex flex-col justify-center border border-gray-400 sm:w-full lg:w-1/2">
-                                <div className="text-4xl font-bold text-center">
-                                    {props.paperInfo['isPositiveOnly']
-                                    ? decode('&#8805;0')
-                                    : 'Any'}
-                                </div>
-                                <div className="text-lg text-center">
-                                    Answer Value
-                                </div>
                             </div>
                         </div>
+
+                        <div className="my-4 p-2 bg-white dark:bg-gray-800 overflow-hidden border border-gray-400">
+                            <div className="pb-2 flex justify-center">
+                                <span className="text-2xl font-bold">Available Operator</span>
+                            </div>
+                            <div className="pb-2 flex justify-around">
+                                <StatusBox isEnabled={props.paperInfo['operator'].includes("+") ? true : false}>
+                                    {decode('&#43;')}
+                                </StatusBox>
+                                <StatusBox isEnabled={props.paperInfo['operator'].includes("-") ? true : false}>
+                                    {decode('&#8722;')}
+                                </StatusBox>
+                                <StatusBox isEnabled={props.paperInfo['operator'].includes("*") ? true : false}>
+                                    {decode('&#215;')}
+                                </StatusBox>
+                                <StatusBox isEnabled={props.paperInfo['operator'].includes("/") ? true : false}>
+                                    {decode('&#247;')}
+                                </StatusBox>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
-                <div className="my-4 flex justify-center">
-                    <div className="my-4 p-2 bg-white dark:bg-gray-800 overflow-hidden border border-gray-400 rounded-md sm:w-full lg:w-9/12">
-                        <div className="pb-2 flex justify-center">
-                            <span className="text-2xl font-bold">Available Operator</span>
-                        </div>
-                        <div className="pb-2 flex justify-around">
-                            <StatusBox isEnabled={props.paperInfo['operator'].includes("+") ? true : false}>
-                                {decode('&#43;')}
-                            </StatusBox>
-                            <StatusBox isEnabled={props.paperInfo['operator'].includes("-") ? true : false}>
-                                {decode('&#8722;')}
-                            </StatusBox>
-                            <StatusBox isEnabled={props.paperInfo['operator'].includes("*") ? true : false}>
-                                {decode('&#215;')}
-                            </StatusBox>
-                            <StatusBox isEnabled={props.paperInfo['operator'].includes("/") ? true : false}>
-                                {decode('&#247;')}
-                            </StatusBox>
-                        </div>
-                    </div>
-                </div>
+
 
 
 
