@@ -51,7 +51,7 @@ export default function GenerateForm(props){
             <BodyCard smWidth='7xl' lgWidth='4xl' smPadding='6' lgPadding ='8'>
 
                 <div className="pb-8 flex justify-center">
-                    <span className="text-4xl font-bold	">Generate Quiz</span>
+                    <span className="text-4xl font-bold">Generate Quiz</span>
                 </div>
 
                 <ValidationErrors errors={errors} />

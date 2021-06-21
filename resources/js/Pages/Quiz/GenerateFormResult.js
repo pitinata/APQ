@@ -20,7 +20,7 @@ export default function GenerateForm(props){
             <BodyCard smWidth='7xl' lgWidth='3xl' smPadding='6' lgPadding ='8'>
 
                 <div className="pb-2 flex justify-center">
-                    <span className="text-4xl font-bold">Generate Successful</span>
+                    <span className="text-3xl md:text-4xl font-bold text-center">Generate Successful</span>
                 </div>
 
                 <div className="pb-4 flex justify-center">
@@ -28,11 +28,11 @@ export default function GenerateForm(props){
                 </div>
 
                 <div className="flex justify-center">
-                    <hr className="sm:w-4/5 lg:w-2/4"/>
+                    <hr className="w-4/5 lg:w-2/4"/>
                 </div>
 
                 <div className="my-4 flex justify-center">
-                    <div className="flex flex-col sm:w-full lg:w-9/12">
+                    <div className="flex flex-col w-full md:w-9/12">
                         <div className="mt-4 flex h-48">
                             <div className="flex flex-col justify-center border border-gray-400 w-full">
                                 <div className="flex flex-col justify-center h-1/4">
@@ -40,7 +40,7 @@ export default function GenerateForm(props){
                                 </div>
                                 <div className="flex flex-col justify-center h-2/4">
                                     <div>
-                                        <div className="text-xl font-bold text-center">
+                                        <div className="text-2xl font-bold text-center">
                                             { <QuestionStructure totalNumber={props.paperInfo['totalNumber']} isPositiveOnly={props.paperInfo['isPositiveOnly']}></QuestionStructure> }
                                         </div>
                                         <div className="text-center">
@@ -87,57 +87,9 @@ export default function GenerateForm(props){
                     </div>
                 </div>
 
-
-
-
-
                 <div className="pb-4 flex justify-center">
-                    <hr className="sm:w-4/5 lg:w-2/4"/>
+                    <hr className="w-4/5 lg:w-2/4"/>
                 </div>
-
-
-
-                {/* <div className="my-4 p-2 bg-white dark:bg-gray-800 overflow-hidden border border-gray-400 rounded-md">
-                    <div className="my-4 flex justify-center">
-                        <span className="text-2xl font-bold	">Quiz Paper Information</span>
-                    </div>
-                    <table className="w-full table-auto text-center">
-                        <tr>
-                            <td className="text-1xl font-bold border border-gray-400">Quiz Paper Id</td>
-                            <td className="text-1xl border border-gray-400">{ props.paperInfo['paperId'] }</td>
-                        </tr>
-                        <tr>
-                            <td className="text-1xl font-bold border border-gray-400">Total Question</td>
-                            <td className="text-1xl border border-gray-400">{ props.paperInfo['totalQuestion'] }</td>
-                        </tr>
-                        <tr>
-                            <td className="text-1xl font-bold border border-gray-400">Total number in each question</td>
-                            <td className="text-1xl border border-gray-400">{ props.paperInfo['totalNumber'] }</td>
-                        </tr>
-                        <tr>
-                            <td className="text-1xl font-bold border border-gray-400">Maximum digit in each number</td>
-                            <td className="text-1xl border border-gray-400">{ props.paperInfo['digitPerNumber'] }</td>
-                        </tr>
-                        <tr>
-                            <td className="text-1xl font-bold border border-gray-400">Mix digit number</td>
-                            <td className="text-1xl border border-gray-400">{ props.paperInfo['isMixDigit'] == true ? 'Yes' : 'No' }</td>
-                        </tr>
-                        <tr>
-                            <td className="text-1xl font-bold border border-gray-400">Positive number only</td>
-                            <td className="text-1xl border border-gray-400">{ props.paperInfo['isPositiveOnly'] == true ? 'Yes' : 'No' }</td>
-                        </tr>
-                        <tr>
-                            <td className="text-1xl font-bold border border-gray-400">Available operator</td>
-                            <td className="text-1xl border border-gray-400">
-                                <ul>
-                                { props.paperInfo['operator'].map((element, index) => (
-                                    <li key={index}>{element}</li>
-                                )) }
-                                </ul>
-                            </td>
-                        </tr>
-                    </table>
-                </div> */}
 
                 <div className="pb-2 flex justify-center">
                     <a href={route('paper.generate', {

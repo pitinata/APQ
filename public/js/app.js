@@ -8042,9 +8042,9 @@ function BodyCard(_ref) {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
       className: "my-20 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "p-12",
+        className: "py-12 sm:p-12",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "mx-12",
+          className: "mx-8 sm:mx-12",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             className: "mt-2 text-gray-600 dark:text-gray-400 text-sm",
             children: children
@@ -9301,7 +9301,7 @@ function GenerateForm(props) {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
         className: "pb-8 flex justify-center",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
-          className: "text-4xl font-bold\t",
+          className: "text-4xl font-bold",
           children: "Generate Quiz"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Components_ValidationErrors__WEBPACK_IMPORTED_MODULE_7__.default, {
@@ -9503,7 +9503,7 @@ function GenerateForm(props) {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
         className: "pb-2 flex justify-center",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-          className: "text-4xl font-bold",
+          className: "text-3xl md:text-4xl font-bold text-center",
           children: "Generate Successful"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
@@ -9515,12 +9515,12 @@ function GenerateForm(props) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
         className: "flex justify-center",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("hr", {
-          className: "sm:w-4/5 lg:w-2/4"
+          className: "w-4/5 lg:w-2/4"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
         className: "my-4 flex justify-center",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-          className: "flex flex-col sm:w-full lg:w-9/12",
+          className: "flex flex-col w-full md:w-9/12",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
             className: "mt-4 flex h-48",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
@@ -9535,7 +9535,7 @@ function GenerateForm(props) {
                 className: "flex flex-col justify-center h-2/4",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                    className: "text-xl font-bold text-center",
+                    className: "text-2xl font-bold text-center",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Components_Parts_QuestionStructure__WEBPACK_IMPORTED_MODULE_3__.default, {
                       totalNumber: props.paperInfo['totalNumber'],
                       isPositiveOnly: props.paperInfo['isPositiveOnly']
@@ -9600,7 +9600,7 @@ function GenerateForm(props) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
         className: "pb-4 flex justify-center",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("hr", {
-          className: "sm:w-4/5 lg:w-2/4"
+          className: "w-4/5 lg:w-2/4"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
         className: "pb-2 flex justify-center",
