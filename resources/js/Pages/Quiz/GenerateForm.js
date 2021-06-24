@@ -102,13 +102,13 @@ export default function GenerateForm(props){
 
                     <div className="flex justify-center">
                         <div className="bg-white dark:bg-gray-800 overflow-hidden border border-gray-400 rounded-lg w-3/4">
-                            <div className="py-2 flex flex-col flex-wrap place-content-center h-48">
+                            <div className="py-2 flex flex-col flex-wrap place-content-center h-56 sm:h-48">
                                 <div className="flex flex-col justify-center h-1/4">
                                     <div className="text-2xl font-bold text-center">Preview</div>
                                 </div>
-                                <div className="flex flex-col justify-center h-2/4">
+                                <div className="flex flex-col justify-center h-2/4 overflow-y-auto">
                                     <div className="text-2xl font-bold text-center">
-                                        <QuestionStructure totalNumber={data.totalNumber} isPositiveOnly={data.isPositiveOnly}></QuestionStructure>
+                                        <QuestionStructure totalNumber={data.totalNumber} isPositiveOnly={data.isPositiveOnly} max="4"></QuestionStructure>
                                     </div>
                                 </div>
                                 <div className="flex flex-col justify-center h-1/4">
@@ -169,13 +169,13 @@ export default function GenerateForm(props){
 
                     <div className="flex justify-center">
                         <div className="bg-white dark:bg-gray-800 overflow-hidden border border-gray-400 rounded-lg w-3/4">
-                            <div className="py-4 flex flex-col flex-wrap place-content-center h-28">
+                            <div className="py-4 flex flex-col flex-wrap place-content-center h-40 sm:h-28">
                                 <div className="flex flex-col justify-center h-1/4">
                                     <div className="text-2xl font-bold text-center">Preview</div>
                                 </div>
-                                <div className="flex flex-col justify-center h-3/4">
+                                <div className="flex flex-col justify-center h-3/4 overflow-y-auto">
                                     <div className="text-2xl font-bold text-center">
-                                        <NumberValue digitPerNumber={data.digitPerNumber} isMixDigit={data.isMixDigit}></NumberValue>
+                                        <NumberValue digitPerNumber={data.digitPerNumber} isMixDigit={data.isMixDigit} max="2"></NumberValue>
                                     </div>
                                 </div>
                             </div>
@@ -235,28 +235,28 @@ export default function GenerateForm(props){
                         <div className="pb-2 flex justify-around">
                             <div className="flex flex-col flex-wrap content-center place-items-center">
                                 <div>Plus</div>
-                                <StatusBox className="my-2 cursor-pointer" isEnabled={data.operator.includes("+") ? true : false} onClick={() => manuallySetOperator("operator", "+", !data.operator.includes("+"))}>
+                                <StatusBox className="my-2 cursor-pointer transition-colors ease-in-out duration-200" isEnabled={data.operator.includes("+") ? true : false} onClick={() => manuallySetOperator("operator", "+", !data.operator.includes("+"))}>
                                     {decode('&#43;')}
                                 </StatusBox>
                                 <Checkbox id="plus" name="operator" value="+" checked={data.operator.includes("+") ? "checked" : ""} handleChange={onHandleChangeCheckboxGroup} />
                             </div>
                             <div className="flex flex-col flex-wrap content-center place-items-center">
                                 <div>Minus</div>
-                                <StatusBox className="my-2 cursor-pointer" isEnabled={data.operator.includes("-") ? true : false} onClick={() => manuallySetOperator("operator", "-", !data.operator.includes("-"))}>
+                                <StatusBox className="my-2 cursor-pointer transition-colors ease-in-out duration-200" isEnabled={data.operator.includes("-") ? true : false} onClick={() => manuallySetOperator("operator", "-", !data.operator.includes("-"))}>
                                     {decode('&#8722;')}
                                 </StatusBox>
                                 <Checkbox id="minus" name="operator" value="-" checked={data.operator.includes("-") ? "checked" : ""} handleChange={onHandleChangeCheckboxGroup} />
                             </div>
                             <div className="flex flex-col flex-wrap content-center place-items-center">
                                 <div>Multiply</div>
-                                <StatusBox className="my-2 cursor-pointer" isEnabled={data.operator.includes("*") ? true : false} onClick={() => manuallySetOperator("operator", "*", !data.operator.includes("*"))}>
+                                <StatusBox className="my-2 cursor-pointer transition-colors ease-in-out duration-200" isEnabled={data.operator.includes("*") ? true : false} onClick={() => manuallySetOperator("operator", "*", !data.operator.includes("*"))}>
                                     {decode('&#215;')}
                                 </StatusBox>
                                 <Checkbox id="multiply" name="operator" value="*" checked={data.operator.includes("*") ? "checked" : ""} handleChange={onHandleChangeCheckboxGroup} />
                             </div>
                             <div className="flex flex-col flex-wrap content-center place-items-center">
                                 <div>Divide</div>
-                                <StatusBox className="my-2 cursor-pointer" isEnabled={data.operator.includes("/") ? true : false} onClick={() => manuallySetOperator("operator", "/", !data.operator.includes("/"))}>
+                                <StatusBox className="my-2 cursor-pointer transition-colors ease-in-out duration-200" isEnabled={data.operator.includes("/") ? true : false} onClick={() => manuallySetOperator("operator", "/", !data.operator.includes("/"))}>
                                     {decode('&#247;')}
                                 </StatusBox>
                                 <Checkbox id="divide" name="operator" value="/" checked={data.operator.includes("/") ? "checked" : ""} handleChange={onHandleChangeCheckboxGroup} />
