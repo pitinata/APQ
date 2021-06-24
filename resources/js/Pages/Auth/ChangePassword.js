@@ -61,7 +61,7 @@ export default function ChangePassword(props){
             <BodyCard smWidth='7xl' lgWidth='2xl' smPadding='6' lgPadding ='8'>
 
                 <div className="mb-8 flex justify-center">
-                    <span className="text-4xl font-bold	">Change Password</span>
+                    <span className="text-3xl md:text-4xl font-bold	">Change Password</span>
                 </div>
 
                 <ValidationErrors errors={errors} />
