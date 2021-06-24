@@ -14,15 +14,18 @@ export default function QuestionStructure({totalNumber = 1, isPositiveOnly}){
             quizStructure = quizStructure + decode(' &#8805; 0');
         }
         else{
-            quizStructure = quizStructure + " = Any Value";
+            quizStructure = quizStructure + " = Any";
         }
 
     }
     else{
-        quizStructure = "Undefined Data Structure.";
+        quizStructure = (<div className="text-gray-200">N/A</div>);
     }
 
     return(
-        <span>{quizStructure}</span>
+        <span>
+             { quizStructure }
+        </span>
+
     )
 }
