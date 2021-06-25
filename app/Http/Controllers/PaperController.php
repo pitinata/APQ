@@ -60,7 +60,7 @@ class PaperController extends Controller
 
     public function list(){
 
-        $paperLists = Paper::where('user_id', auth()->user()->id)->orderByDesc('paper_id')->paginate(5);
+        $paperLists = Paper::where('user_id', auth()->user()->id)->orderByDesc('paper_id')->paginate(10)->onEachSide(2);
 
         $paperLists->load('quiz');
 
