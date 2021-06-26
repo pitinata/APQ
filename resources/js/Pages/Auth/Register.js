@@ -6,8 +6,11 @@ import React, { useEffect } from 'react';
 import ValidationErrors from '@/Components/ValidationErrors';
 import { InertiaLink } from '@inertiajs/inertia-react';
 import { useForm } from '@inertiajs/inertia-react';
+import useScript from '@/Hooks/useScript';
 
-export default function Register() {
+export default function Register({googleSiteKey}) {
+    useScript('https://www.google.com/recaptcha/api.js?render='+googleSiteKey);
+
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         email: '',
@@ -28,7 +31,11 @@ export default function Register() {
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('register'));
+        grecaptcha.ready(function() {
+            grecaptcha.execute(googleSiteKey, {action: 'submit'}).then(function(token) {
+                post(route('register'));
+            });
+        });
     };
 
     return (

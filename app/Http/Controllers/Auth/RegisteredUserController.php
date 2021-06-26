@@ -21,7 +21,9 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Auth/Register');
+        return Inertia::render('Auth/Register', [
+            'googleSiteKey' => env('GOOGLE_CAPTCHA_SITE_KEY'),
+        ]);
     }
 
     /**
