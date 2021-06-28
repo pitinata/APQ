@@ -10,7 +10,7 @@ import { useForm } from '@inertiajs/inertia-react';
 import useScript from '@/Hooks/useScript';
 
 export default function Login({ status, canResetPassword, googleSiteKey }) {
-    useScript('https://www.google.com/recaptcha/api.js?render='+googleSiteKey);
+    useScript('https://www.google.com/recaptcha/api.js?render='+googleSiteKey, "grecaptcha-badge");
 
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',
