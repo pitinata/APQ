@@ -69,16 +69,16 @@ export default function GenerateForm(props){
                                 <span className="text-2xl font-bold">Available Operator</span>
                             </div>
                             <div className="pb-2 flex justify-around">
-                                <StatusBox isEnabled={props.paperInfo['operator'].includes("+") ? true : false}>
+                                <StatusBox id="plus" isEnabled={props.paperInfo['operator'].includes("+") ? true : false}>
                                     {decode('&#43;')}
                                 </StatusBox>
-                                <StatusBox isEnabled={props.paperInfo['operator'].includes("-") ? true : false}>
+                                <StatusBox id="minus" isEnabled={props.paperInfo['operator'].includes("-") ? true : false}>
                                     {decode('&#8722;')}
                                 </StatusBox>
-                                <StatusBox isEnabled={props.paperInfo['operator'].includes("*") ? true : false}>
+                                <StatusBox id="multiply" isEnabled={props.paperInfo['operator'].includes("*") ? true : false}>
                                     {decode('&#215;')}
                                 </StatusBox>
-                                <StatusBox isEnabled={props.paperInfo['operator'].includes("/") ? true : false}>
+                                <StatusBox id="divide" isEnabled={props.paperInfo['operator'].includes("/") ? true : false}>
                                     {decode('&#247;')}
                                 </StatusBox>
                             </div>
