@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import MainBody from '@/Components/MainBody';
 import BodyCard from '@/Components/Parts/BodyCard';
 import Menu from '@/Components/Parts/Menu';
 import Input from '@/Components/Input';
@@ -54,7 +55,7 @@ export default function ChangePassword(props){
     }
 
     return (
-        <div className="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
+        <MainBody>
 
             <Menu props={props}></Menu>
 
@@ -114,6 +115,6 @@ export default function ChangePassword(props){
 
                 </form>
             </BodyCard>
-        </div>
+        </MainBody>
     );
 }

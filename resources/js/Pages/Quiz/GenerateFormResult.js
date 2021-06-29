@@ -1,4 +1,5 @@
 import React from 'react';
+import MainBody from '@/Components/MainBody';
 import BodyCard from '@/Components/Parts/BodyCard';
 import Menu from '@/Components/Parts/Menu';
 import QuestionStructure from '@/Components/Parts/QuestionStructure';
@@ -13,7 +14,7 @@ import { decode } from 'html-entities';
 export default function GenerateForm(props){
 
     return (
-        <div className="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
+        <MainBody>
 
             <Menu props={props}></Menu>
 
@@ -114,6 +115,6 @@ export default function GenerateForm(props){
 
 
 
-        </div>
+        </MainBody>
     );
 }
