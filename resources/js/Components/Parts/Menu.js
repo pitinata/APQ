@@ -34,6 +34,8 @@ export default function Menu({props}){
                     </Dropdown.Trigger>
 
                     <Dropdown.Content>
+                        <div className="break-words py-2 px-4"><div>Hello, {props.auth.user.name}</div></div>
+                        <hr/>
                         <Dropdown.Link href={route('quiz.form')} method="get" as="button">
                             Quiz Generator
                         </Dropdown.Link>
