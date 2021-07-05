@@ -4,9 +4,9 @@ import WhiteButton from '@/Components/Button/WhiteButton';
 import Dropdown from '@/Components/Dropdown';
 import { InertiaLink } from '@inertiajs/inertia-react';
 
-export default function Menu({props}){
+export default function Menu({ position = 'fixed', props}){
     return(
-        <div className="fixed top-0 right-0 px-6 py-4 sm:block">
+        <div className={`${position} top-0 right-0 px-6 py-4 sm:block`}>
                 {props.auth.user ? (
                 <Dropdown>
                     <Dropdown.Trigger>

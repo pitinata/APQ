@@ -15,6 +15,7 @@ module.exports = {
             },
             backgroundImage: theme => ({
                 'old-math': "url('/image/bg.png')",
+                'welcome-page': "url('/image/welcome-page.jpg')",
             })
         },
     },

@@ -37,6 +37,7 @@ Route::prefix('paper')->middleware(['auth', 'verified'])->group(function(){
     Route::get('/form', [PaperController::class, 'create'])->name('paper.form');
     Route::get('/list', [PaperController::class, 'list'])->name('paper.list');
     Route::get('/generate/{paperId}', [PaperController::class, 'generate'])->name('paper.generate');
+    Route::get('/view/{paperId}', [PaperController::class, 'view'])->name('paper.view');
 });
 
 Route::prefix('user')->middleware(['auth', 'verified'])->group(function(){

@@ -23,14 +23,22 @@
         .topDiv{
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
 
         .topDiv > div{
             width: 33.33%;
         }
 
-        .bodyDiv{
+        .rightTopDiv {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
 
+        .rightTopDiv > div{
+            text-align: right;
         }
 
         .bottomDiv{
@@ -54,9 +62,12 @@
 
                     <div>
                         <div class="topDiv">
-                            <div>Quiz Paper #{{ $paper->paper_id }}</div>
+                            <div>APQ</div>
                             <div style="text-align: center">{{ $loop->iteration }}</div>
-                            <div style="text-align: right">Created Date: {{ \Carbon\Carbon::parse($paper->created_at)->format('d/m/Y') }}</div>
+                            <div class="rightTopDiv">
+                                <div>Quiz Paper #{{ $paper->paper_id }}</div>
+                                <div>Created Date: {{ \Carbon\Carbon::parse($paper->created_at)->format('d/m/Y') }}</div>
+                            </div>
                         </div>
 
                         <div class="bodyDiv">

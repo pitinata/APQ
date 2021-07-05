@@ -17918,6 +17918,10 @@ select {
   background-image: url('/image/bg.png');
 }
 
+.bg-welcome-page {
+  background-image: url('/image/welcome-page.jpg');
+}
+
 .from-transparent {
   --tw-gradient-from: transparent;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -49217,6 +49221,10 @@ select {
     background-image: url('/image/bg.png');
   }
 
+  .sm\:bg-welcome-page {
+    background-image: url('/image/welcome-page.jpg');
+  }
+
   .sm\:from-transparent {
     --tw-gradient-from: transparent;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -80442,6 +80450,10 @@ select {
 
   .md\:bg-old-math {
     background-image: url('/image/bg.png');
+  }
+
+  .md\:bg-welcome-page {
+    background-image: url('/image/welcome-page.jpg');
   }
 
   .md\:from-transparent {
@@ -111671,6 +111683,10 @@ select {
     background-image: url('/image/bg.png');
   }
 
+  .lg\:bg-welcome-page {
+    background-image: url('/image/welcome-page.jpg');
+  }
+
   .lg\:from-transparent {
     --tw-gradient-from: transparent;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -142898,6 +142914,10 @@ select {
     background-image: url('/image/bg.png');
   }
 
+  .xl\:bg-welcome-page {
+    background-image: url('/image/welcome-page.jpg');
+  }
+
   .xl\:from-transparent {
     --tw-gradient-from: transparent;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -174123,6 +174143,10 @@ select {
 
   .\32xl\:bg-old-math {
     background-image: url('/image/bg.png');
+  }
+
+  .\32xl\:bg-welcome-page {
+    background-image: url('/image/welcome-page.jpg');
   }
 
   .\32xl\:from-transparent {

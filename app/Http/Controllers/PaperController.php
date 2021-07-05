@@ -61,6 +61,25 @@ class PaperController extends Controller
         //     'quizzes'=> $quizzes,
         //     'setting'=> $setting,
         // ]);
+
+    }
+
+    public function view($paperId){
+        $paper = Paper::findOrFail($paperId);
+        $quizzes = $paper->quiz->all();
+
+        foreach($quizzes as $key=>$quiz){
+            $quiz->quizNumber = $key+1;
+            $quiz->quizString = QuizGenerator::serializedQuestionToString($quiz->question_number,$quiz->question_operator);
+        }
+
+        $setting["showAnswer"] = true;
+
+        return view('pdf.page', [
+            'paper'=> $paper,
+            'quizzes'=> $quizzes,
+            'setting'=> $setting,
+        ]);
     }
 
     public function list(){
