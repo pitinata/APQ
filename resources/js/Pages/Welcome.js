@@ -12,11 +12,11 @@ export default function Welcome(props) {
                 <Menu position='absolute' props={props}></Menu>
                 <div className="flex flex-col items-center self-center bg-white bg-opacity-50 rounded-lg p-8">
                     <Logo className="sm:w-3/4 md:w-2/3 lg:w-1/2"></Logo>
-                    <div className="text-center text-3xl mt-5">Generate Quiz Made Easy</div>
+                    <div className="text-center text-3xl mt-5">Create Quiz in Seconds</div>
                     <div className="text-center mt-5 flex justify-around">
                         <InertiaLink href={route('quiz.form')} className="text-sm text-gray-700">
                             <BlackButton px='6' py='4'>
-                                Let's get started!
+                                Create new quiz
                             </BlackButton>
                         </InertiaLink>
                     </div>
@@ -31,8 +31,9 @@ export default function Welcome(props) {
                     </div>
 
                     <div className="mb-2">
-                        One of these approaches is to challenge yourself every day by attempting to solve a simple mathematic problem quickly.
-                        This web application can generate sheets of simple mathematic question and answer with your choice of generator criteria.
+                        One of these approaches is to challenge yourself by attempting to solve a simple mathematic problem quickly everyday.
+                        This web application can generate sheets of simple mathematic question with your choice of generator criteria and calculated answer.
+                        Our web application is here to take care of the math problem generating so you can concentrate on the math problem solving.
                     </div>
                 </div>
                 <hr/>
@@ -47,7 +48,7 @@ export default function Welcome(props) {
                             </div>
                             <div className="relative flex flex-col">
                                 <div className="text-2xl">Easy to use</div>
-                                <div>Form that require user to fill is design to be organized so it is easy to use. </div>
+                                <div>The website is organized in such a way that makes it simple to use and understand.</div>
                             </div>
                         </div>
                         <div className="relative flex w-full md:w-1/2 px-10">
@@ -57,8 +58,8 @@ export default function Welcome(props) {
                                 </svg>
                             </div>
                             <div className="relative flex flex-col">
-                                <div className="text-2xl">Light Weight</div>
-                                <div>It contains only most important feature. So it does not take long for user to find something that users want.</div>
+                                <div className="text-2xl">Lightweight</div>
+                                <div>Only the most essential features are included. <span className="text-gray-300 line-through">As a result, it does not take users much time to find something they want. which makes it easier for users to browse the website.</span></div>
                             </div>
                         </div>
                     </div>
@@ -71,18 +72,18 @@ export default function Welcome(props) {
                             </div>
                             <div className="relative flex flex-col">
                                 <div className="text-2xl">Open Source</div>
-                                <div>Source code is available <a href="https://github.com/pitinata/APQ" className="text-blue-600 underline">here</a>.</div>
+                                <div>Source code is freely available <a href="https://github.com/pitinata/APQ" className="text-blue-600 underline">here</a>.</div>
                             </div>
                         </div>
                         <div className="relative flex w-full md:w-1/2 px-10">
-                            <div className="self-center mr-5 p-2 border border-gray-400 rounded-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="#6B7280">
+                            <div className="self-center mr-5 p-2 border border-pink-300 rounded-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="#F472B6">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                                 </svg>
                             </div>
                             <div className="relative flex flex-col">
                                 <div className="text-2xl">It's Free!</div>
-                                <div>No hidden fee. You can use as much as you wish for.</div>
+                                <div>No hidden fee. You are free to use as much as you like.</div>
                             </div>
                         </div>
                     </div>
