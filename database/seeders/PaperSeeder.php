@@ -18,7 +18,7 @@ class PaperSeeder extends Seeder
     {
         Paper::factory()
         ->withUserId(1)
-        ->count(100)
+        ->count(5)
         ->has(Quiz::factory()->count(10))
         ->create();
     }

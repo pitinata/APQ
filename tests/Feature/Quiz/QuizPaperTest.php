@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Quiz;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -20,7 +20,7 @@ class QuizPaperTest extends TestCase
     }
 
     public function test_user_can_download_quiz_paper(){
-        $user = User::factory()->create();
+        $user = User::findOrFail(1);
 
         $response = $this->actingAs($user)->get('/paper/generate/1');
 
@@ -35,7 +35,9 @@ class QuizPaperTest extends TestCase
         $response = $this->actingAs($user)->get('/paper/list');
 
         $response->assertInertia(fn (Assert $page) => $page
-            ->where('paperLists.total', 100)
+            ->where('paperLists.total', function ($value) {
+                return $value > 0;
+            })
         );
     }
 }
