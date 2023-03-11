@@ -12,4 +12,4 @@ Our web application is here to take care of the math problem generating so you c
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The APQ is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
